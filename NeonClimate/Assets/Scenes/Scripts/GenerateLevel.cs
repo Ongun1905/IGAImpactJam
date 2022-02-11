@@ -34,14 +34,18 @@ public class GenerateLevel : MonoBehaviour
     void Start()
     {
         float previousX = 0;
-        for (int i=0; i<10; i++)
+        var ranges = new (float start, float end)[] { (-1.0f, 1.0f) };
+        for (int i = 0; i < 10; i++)
         {
             var rando = Random.Range(0, 8);
+            var isWide = Random.Range(0.0f, 1.0f) > 0.5f;
 
-            var newPlatform = GameObject.Instantiate(getPlatform(rando<3, Random.Range(0.0f, 1.0f)>0.5f), transform);
+            var newPlatform = GameObject.Instantiate(getPlatform(rando < 3, isWide), transform);
+
+            var rangeIndex = Random.Range(0, ranges.Length);
             var newX = Random.Range(
-                    Mathf.Max(minX, previousX - maxDifference),
-                    Mathf.Min(maxX, previousX + maxDifference)
+                    ranges[rangeIndex].start,
+                    ranges[rangeIndex].end
                 );
             newPlatform.transform.position = new Vector3(
                 newX, i * yOffest, 0);
@@ -50,10 +54,27 @@ public class GenerateLevel : MonoBehaviour
 
             if (rando == 0) {
                 newPlatform.AddComponent<SideMovement>();
+
             } else if (rando == 1) {
                 newPlatform.AddComponent<UpMovement>();
             } else if (rando == 2) {
                 newPlatform.AddComponent<Crumbling>();
+            }
+
+
+            if (isWide)
+            {
+                ranges = new[] {
+                    (newX - maxDifference - 3, newX - 3),
+                    (newX + 2, newX + maxDifference + 2)
+                };
+            }
+            else
+            {
+                ranges = new[] {
+                    (newX - maxDifference - 2, newX - 2),
+                    (newX + 1, newX + maxDifference + 1)
+                };
             }
         }
     }
