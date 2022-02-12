@@ -10,6 +10,7 @@ public class GenerateLevel : MonoBehaviour
     public float maxX;
     public float maxDifference;
     public float yOffest;
+    public float yBoxOffset = 2.0f;
 
     void Start()
     {
@@ -26,10 +27,13 @@ public class GenerateLevel : MonoBehaviour
             previousX = newX;
 
             var rando = Random.Range(0, 4);
-            if (rando == 0){
+
+            if (rando == 0) {
                 newPlatform.AddComponent<SideMovement>();
-            } else if (rando == 1){
+            } else if (rando == 1) {
                 newPlatform.AddComponent<UpMovement>();
+            } else if (rando == 2) {
+                newPlatform.AddComponent<Crumbling>();
             }
         }
     }
