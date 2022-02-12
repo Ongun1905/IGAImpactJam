@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public int jumpHeight;
     public LayerMask whatIsGround;
     private Rigidbody2D rigidbody;
+    private float lastGroundedVelocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,17 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Jump");
 
         var velocity = rigidbody.velocity;
-        velocity.x = horizontal * speed;
+        var grounded = IsGrounded();
+        if (grounded)
+        {
+            velocity.x = horizontal * speed;
+            lastGroundedVelocity = velocity.x;
+        } else
+        {
+            velocity.x = lastGroundedVelocity / 2 + horizontal * speed / 2;
+        }
 
-        if (IsGrounded() && vertical > 0.0)
+        if (grounded && vertical > 0.0)
         {
             velocity.y = jumpHeight;
         }
