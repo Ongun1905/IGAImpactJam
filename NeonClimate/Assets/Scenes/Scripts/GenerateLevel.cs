@@ -9,7 +9,7 @@ public class GenerateLevel : MonoBehaviour
     public float maxX;
     public float maxDifference;
     public float yOffest;
-    // Start is called before the first frame update
+
     void Start()
     {
         float previousX = 0;
@@ -23,12 +23,13 @@ public class GenerateLevel : MonoBehaviour
             newPlatform.transform.position = new Vector3(
                 newX, i * yOffest, 0);
             previousX = newX;
-        }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            var rando = Random.Range(0, 4);
+            if (rando == 0){
+                newPlatform.AddComponent<SideMovement>();
+            } else if (rando == 1){
+                newPlatform.AddComponent<UpMovement>();
+            }
+        }
     }
 }
