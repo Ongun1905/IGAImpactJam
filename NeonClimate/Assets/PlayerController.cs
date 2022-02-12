@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
             lastGroundedVelocity = velocity.x;
         } else
         {
-            velocity.x += horizontal * speed / 16;
+            velocity.x += horizontal * speed / 8;
             if (velocity.x < -speed)
             {
                 velocity.x = -speed;

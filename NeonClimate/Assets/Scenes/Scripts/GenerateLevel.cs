@@ -5,6 +5,7 @@ using UnityEngine;
 public class GenerateLevel : MonoBehaviour
 {
     public GameObject platform;
+    public GameObject widePlatform;
     public float minX;
     public float maxX;
     public float maxDifference;
@@ -15,7 +16,7 @@ public class GenerateLevel : MonoBehaviour
         float previousX = 0;
         for (int i=0; i<10; i++)
         {
-            var newPlatform = GameObject.Instantiate(platform, transform);
+            var newPlatform = GameObject.Instantiate(Random.Range(0.0f, 1.0f)>0.5f?platform:widePlatform, transform);
             var newX = Random.Range(
                     Mathf.Max(minX, previousX - maxDifference),
                     Mathf.Min(maxX, previousX + maxDifference)
