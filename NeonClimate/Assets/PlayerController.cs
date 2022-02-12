@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Jump");
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
             lastGroundedVelocity = velocity.x;
         } else
         {
-            velocity.x = lastGroundedVelocity / 2 + horizontal * speed / 2;
+            velocity.x += horizontal * speed / 16;
         }
 
         if (grounded && vertical > 0.0)
