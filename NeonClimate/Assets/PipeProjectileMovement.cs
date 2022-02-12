@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PipeProjectileMovement : MonoBehaviour
 {    
-    private float horizontalSpeed = 10f ;
+    private float horizontalSpeed = -10f ;
     [SerializeField] private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
