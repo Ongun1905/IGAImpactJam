@@ -1,7 +1,7 @@
  using UnityEngine;
  using System.Collections;
  
- public class UpMovement : MonoBehaviour {
+ public class UpMovement : MovingPlatformBase {
  
     public float delta = 0.5f;  // Amount to move left and right from the start point
     public float speed;
