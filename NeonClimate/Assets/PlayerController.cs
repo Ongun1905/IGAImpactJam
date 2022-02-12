@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Vector3 velocity;
-    public int speed;
+    public float speed;
     public int jumpHeight;
     public LayerMask whatIsGround;
     private Rigidbody2D rigidbody;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Jump");
 
         var velocity = rigidbody.velocity;
-        velocity.x = horizontal;
+        velocity.x = horizontal * speed;
 
         if (IsGrounded() && vertical > 0.0)
         {
