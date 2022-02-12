@@ -31,6 +31,14 @@ public class PlayerController : MonoBehaviour
         } else
         {
             velocity.x += horizontal * speed / 16;
+            if (velocity.x < -speed)
+            {
+                velocity.x = -speed;
+            }
+            else if (velocity.x > speed)
+            {
+                velocity.x = speed;
+            }
         }
 
         if (grounded && vertical > 0.0)
