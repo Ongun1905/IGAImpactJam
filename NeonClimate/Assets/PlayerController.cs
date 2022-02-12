@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask whatIsGround;
 
+    private new SpriteRenderer renderer;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = transform.GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity = velocity;
 
         Dash();
+        Flip();
     }
 
     bool IsGrounded()
@@ -68,7 +72,7 @@ public class PlayerController : MonoBehaviour
         //Debug.DrawRay(transform.position, Vector2.down, Color.green, 1);
     }
 
-    private void Dash()
+    public void Dash()
     {
         
         if(Input.GetKeyDown(KeyCode.LeftShift) && !hasDashed)
@@ -81,5 +85,46 @@ public class PlayerController : MonoBehaviour
         {
             hasDashed = false;
         }
+    }
+
+    public void Flip()
+    {
+        if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            renderer.flipX = false;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0) 
+        {
+            renderer.flipX = true;
+        }
+    }
+
+    public void Movement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+
+        Vector2 velocity = rb2d.velocity;
+        bool grounded = IsGrounded();
+        if (grounded)
+        {
+            velocity.x = horizontal * speed;
+        }
+        else
+        {
+            velocity.x += horizontal * speed / 16;
+        }
+        rb2d.velocity = velocity;
+    }
+
+    public void Jump()
+    {
+        Vector2 velocity = rb2d.velocity;
+        bool grounded = IsGrounded();
+        float vertical = Input.GetAxis("Jump");
+        if (grounded && vertical > 0.0)
+        {
+            velocity.y = jumpHeight;
+        }
+        rb2d.velocity = velocity;
     }
 }
