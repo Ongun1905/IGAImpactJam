@@ -25,7 +25,6 @@ public class PlayerIdle_SMB : StateMachineBehaviour
 
         if(Input.GetKey(KeyCode.Space) && grounded)
         {
-            
             animator.SetTrigger("hasJumped");
         }
     }
