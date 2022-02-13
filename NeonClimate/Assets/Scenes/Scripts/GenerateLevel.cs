@@ -46,10 +46,8 @@ public class GenerateLevel : MonoBehaviour
             var newPlatform = GameObject.Instantiate(getPlatform(rando < 3, isWide), transform);
 
             var rangeIndex = Random.Range(0, ranges.Length);
-            var newX = Random.Range(
-                    ranges[rangeIndex].start,
-                    ranges[rangeIndex].end
-                );
+            var newX = Random.Range(Mathf.Max(minX, previousX - maxDifference),
+                    Mathf.Min(maxX, previousX + maxDifference));
             newPlatform.transform.position = new Vector3(
                 newX, i * yOffest, 0);
             previousX = newX;
@@ -97,10 +95,10 @@ public class GenerateLevel : MonoBehaviour
             float sidenumber = Random.Range(-1f, 1f);
             if (sidenumber > 0)
             {
-                var NewRightPipe = GameObject.Instantiate(RightPipe, new Vector3(-11.0F, (i+2)*5, 0), Quaternion.identity);
+                var NewRightPipe = GameObject.Instantiate(RightPipe, new Vector3(-20.0F, (i+2)*5, 0), Quaternion.identity);
             }
             else {
-                var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(11.0F, (i+1)*5, 0), Quaternion.identity);
+                var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(20.0F, (i+1)*5, 0), Quaternion.identity);
 
             }
         }  

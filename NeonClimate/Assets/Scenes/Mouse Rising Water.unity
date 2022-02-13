@@ -465,10 +465,10 @@ MonoBehaviour:
   LeftPipe: {fileID: 4408304605027712119, guid: d1be30ee2e06ae449919b7ea68d4c44c, type: 3}
   RightPipe: {fileID: 5635071657588135881, guid: 20d2432c4bd3b034e9d7a1aad68a0d23, type: 3}
   power: {fileID: 5345210264749729729, guid: 23ea22dbe2606afbbbd4938b59112897, type: 3}
-  minX: -10
-  maxX: 10
+  minX: -15
+  maxX: 15
   maxDifference: 4
-  yOffest: 2
+  yOffest: 3
   yBoxOffset: 2
 --- !u!4 &167628916
 Transform:
