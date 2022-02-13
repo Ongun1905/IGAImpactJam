@@ -12,7 +12,7 @@ public class PipeProjectileSpawner : MonoBehaviour
     void Start()
     {
 
-        PlayerTransform= GameObject.FindGameObjectWithTag("Player").transform;
+        PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(TrashThrower());
     }
 

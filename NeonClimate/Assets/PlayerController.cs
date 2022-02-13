@@ -53,11 +53,10 @@ public class PlayerController : MonoBehaviour
 
     public void Movement()
     {
-        Debug.Log("move");
+        
         float horizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(horizontal, 0);
-        rb2d.velocity = new Vector2(movement.x * speed, rb2d.velocity.y);
-        rb2d.MovePosition(rb2d.position + rb2d.velocity * Time.fixedDeltaTime);
+        Vector3 movement = new Vector3(horizontal, 0, 0);
+        transform.position += speed * Time.deltaTime * movement;
 
     }
 
@@ -77,6 +76,11 @@ public class PlayerController : MonoBehaviour
         {
             hasDashed = false;
         }
+    }
+
+    private void MovementInAir()
+    {
+
     }
 	
 	private void CheckDash()
