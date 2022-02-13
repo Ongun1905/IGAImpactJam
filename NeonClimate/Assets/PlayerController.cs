@@ -56,6 +56,79 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+<<<<<<< Updated upstream
         Debug.DrawRay(transform.position, Vector2.down, Color.green, 1);
+=======
+        //Debug.DrawRay(transform.position, Vector2.down, Color.green, 1);
     }
+
+    public void Dash()
+    {
+        
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !hasDashed)
+        {
+            Vector2 velocity = rb2d.velocity;
+            rb2d.velocity = new Vector2(rb2d.velocity.x * dashSpeed, rb2d.velocity.y);
+            hasDashed = true;
+        }
+        else if(IsGrounded())
+        {
+            hasDashed = false;
+        }
+    }
+
+    public void Flip()
+    {
+        if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            renderer.flipX = false;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0) 
+        {
+            renderer.flipX = true;
+        }
+    }
+
+    public void Movement()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+
+        Vector2 velocity = rb2d.velocity;
+        bool grounded = IsGrounded();
+        if (grounded)
+        {
+            velocity.x = horizontal * speed;
+        }
+        else
+        {
+            velocity.x += horizontal * speed / 16;
+        }
+        rb2d.velocity = velocity;
+    }
+
+    public void Jump()
+    {
+
+
+        Vector2 velocity = rb2d.velocity;
+        bool grounded = IsGrounded();
+        float vertical = Input.GetAxis("Jump");
+        if (grounded && vertical > 0.0)
+        {
+           velocity.y = jumpHeight;
+
+        }
+        rb2d.velocity = velocity;
+>>>>>>> Stashed changes
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Check to see if the tag on the collider is equal to Enemy
+        if (other.gameObject.tag == "ToxicWater")
+        {
+            Debug.Log("Triggered by Enemy");
+        }
+    }
+
 }
