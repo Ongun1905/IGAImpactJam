@@ -8,6 +8,8 @@ public class GenerateLevel : MonoBehaviour
     public GameObject movingPlatformWide;
     public GameObject platform;
     public GameObject widePlatform;
+    public GameObject LeftPipe;
+    public GameObject RightPipe;
     public float minX;
     public float maxX;
     public float maxDifference;
@@ -52,12 +54,17 @@ public class GenerateLevel : MonoBehaviour
             previousX = newX;
 
 
-            if (rando == 0) {
+            if (rando == 0)
+            {
                 newPlatform.AddComponent<SideMovement>();
 
-            } else if (rando == 1) {
+            }
+            else if (rando == 1)
+            {
                 newPlatform.AddComponent<UpMovement>();
-            } else if (rando == 2) {
+            }
+            else if (rando == 2)
+            {
                 newPlatform.AddComponent<Crumbling>();
             }
 
@@ -77,5 +84,22 @@ public class GenerateLevel : MonoBehaviour
                 };
             }
         }
+
+        for (int i = 0; i < 5; i++)
+        {
+            float sidenumber = Random.Range(-1f, 1f);
+            if (sidenumber > 0)
+            {
+                var NewRightPipe = GameObject.Instantiate(RightPipe, new Vector3(-11.0F, (i+2)*3, 0), Quaternion.identity);
+            }
+            else {
+                var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(11.0F, (i+1)*3, 0), Quaternion.identity);
+
+            }
+        }
+
+      
+        
+        
     }
 }
