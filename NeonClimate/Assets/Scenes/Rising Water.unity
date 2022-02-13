@@ -544,6 +544,8 @@ MonoBehaviour:
   movingPlatformWide: {fileID: 1145932357}
   platform: {fileID: 607952676}
   widePlatform: {fileID: 902512092}
+  LeftPipe: {fileID: 0}
+  RightPipe: {fileID: 0}
   minX: -10
   maxX: 10
   maxDifference: 4
@@ -3561,7 +3563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160356164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.07, z: 0}
+  m_LocalPosition: {x: 0, y: -12.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1278775298}
@@ -4983,7 +4985,7 @@ SpriteRenderer:
   m_Size: {x: 30, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2130720981

@@ -24,19 +24,17 @@ public class PlayerWalk_SMB : StateMachineBehaviour
             playerController.Movement();
         }
         
+        if(Input.GetKey(KeyCode.Space) && playerController.IsGrounded())
+        {
+            animator.SetTrigger("hasJumped");
+            animator.SetBool("isWalking", false);
+        }
 
-
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        if (rb2d.velocity.x == 0)
         {
             animator.SetBool("isWalking", false);
         }
 
-        if (Input.GetKey(KeyCode.Space) && playerController.IsGrounded())
-        {
-        
-            animator.SetTrigger("hasJumped");
-
-        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
