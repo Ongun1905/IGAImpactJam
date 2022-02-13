@@ -238,8 +238,8 @@ MonoBehaviour:
   movingPlatformWide: {fileID: 1145932357}
   platform: {fileID: 607952676}
   widePlatform: {fileID: 902512092}
-  LeftPipe: {fileID: 0}
-  RightPipe: {fileID: 0}
+  LeftPipe: {fileID: 4408304605027712119, guid: d1be30ee2e06ae449919b7ea68d4c44c, type: 3}
+  RightPipe: {fileID: 5635071657588135881, guid: 20d2432c4bd3b034e9d7a1aad68a0d23, type: 3}
   minX: -10
   maxX: 10
   maxDifference: 4
