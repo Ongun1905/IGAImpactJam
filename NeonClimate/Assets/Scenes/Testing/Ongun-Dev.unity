@@ -499,6 +499,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1567703293366569860, guid: 7972cd9779163674eb1a550b831da192, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: ebf2ed4327d382546a876c25b4db061a, type: 2}
+    - target: {fileID: 1567703293366569860, guid: 7972cd9779163674eb1a550b831da192, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1567703293366569861, guid: 7972cd9779163674eb1a550b831da192, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -569,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: -6284238159451314180, guid: 2c0819209c071cb4c809416544096f5d, type: 3}
     - target: {fileID: 1567703293366569867, guid: 7972cd9779163674eb1a550b831da192, type: 3}
       propertyPath: speed
-      value: 3.25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1567703293366569867, guid: 7972cd9779163674eb1a550b831da192, type: 3}
       propertyPath: dashSpeed
@@ -577,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567703293366569867, guid: 7972cd9779163674eb1a550b831da192, type: 3}
       propertyPath: jumpHeight
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7972cd9779163674eb1a550b831da192, type: 3}

@@ -5,25 +5,37 @@ using UnityEngine;
 public class PlayerWalk_SMB : StateMachineBehaviour
 {
     private PlayerController playerController;
+    private Rigidbody2D rb2d;
      //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        rb2d = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        
     }
 
      //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerController.Movement();
+        
         playerController.Flip();
-        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        if(playerController.IsGrounded())
+        {
+            playerController.Movement();
+        }
+        
+
+
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             animator.SetBool("isWalking", false);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && playerController.IsGrounded())
         {
+            playerController.Jump();
             animator.SetTrigger("hasJumped");
+
         }
     }
 
