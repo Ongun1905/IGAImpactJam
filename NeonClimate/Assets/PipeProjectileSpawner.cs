@@ -7,10 +7,13 @@ public class PipeProjectileSpawner : MonoBehaviour
     [SerializeField] private GameObject prefabPipeProjectile;
     [SerializeField] private Transform spawnPosPipe;
     [SerializeField] private Transform ProjectileFolder;
+    private Transform PlayerTranform;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TrashThrower());
+        PlayerTranform = GameObject.FindGameObjectWithTag("Player").transform;
+
+    StartCoroutine(TrashThrower());
     }
 
     // Update is called once per frame
@@ -21,7 +24,7 @@ public class PipeProjectileSpawner : MonoBehaviour
 
     private IEnumerator TrashThrower()
     {
-        while (true)
+        while (Mathf.Abs(transform.position.y - PlayerTranform.position.y)<10f)
         {
             float delay = Random.Range(0.8f, 2.5f);
             Debug.Log(delay);
