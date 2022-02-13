@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
 
-    public int jumpHeight;
+    public float jumpHeight;
     public int dashSpeed;
     private bool hasDashed = false;
    
@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
 
     private new SpriteRenderer renderer;
+
+    public bool hasPressedJump = false;
 
     // Start is called before the first frame update
     void Start()
@@ -82,9 +84,9 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        rb2d.AddForce(Vector3.up * jumpHeight, ForceMode2D.Impulse);
-        
+        Vector2 playerPos = Vector2.up;
+        rb2d.AddForce(playerPos*jumpHeight, ForceMode2D.Impulse);
     }
 
-
+    
 }
