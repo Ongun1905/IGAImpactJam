@@ -47,15 +47,13 @@ public class Crumbling : MonoBehaviour
                 crumbling = false;
                 // make visible again
                 gameObject.GetComponent<BoxCollider2D>().enabled = true;
-                var renderer = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
-                renderer.enabled = true;
+                Crumble(true);
             }
             else if (passed >= crumbleTime)
             {
                 // make invisible
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                var renderer = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
-                renderer.enabled = false;
+                Crumble(false);
             }
             else if (passed < crumbleTime)
             {
@@ -63,6 +61,15 @@ public class Crumbling : MonoBehaviour
                 pos.x = pos.x + delta * Mathf.Sin(Time.time * speed);
                 transform.position = pos;
             }
+        }
+    }
+
+    void Crumble(bool enable)
+    {
+        foreach(Transform child in transform)
+        {
+            var renderer = child.gameObject.GetComponent<SpriteRenderer>();
+            renderer.enabled = enable;
         }
     }
 }
