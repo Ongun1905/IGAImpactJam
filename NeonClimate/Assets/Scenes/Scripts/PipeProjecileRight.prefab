@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: -5213152765178402387}
   - component: {fileID: 1076841764731984360}
   - component: {fileID: 138416576657012187}
+  - component: {fileID: 6703829614962579955}
   m_Layer: 0
   m_Name: PipeProjecileRight
-  m_TagString: Untagged
+  m_TagString: ToxicWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,3 +120,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6703829614962579955
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8455524617302004650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.054999996
