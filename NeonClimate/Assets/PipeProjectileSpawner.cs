@@ -24,7 +24,7 @@ public class PipeProjectileSpawner : MonoBehaviour
         while (true)
         {
             float delay = Random.Range(0.8f, 2.5f);
-            Debug.Log(delay);
+            //Debug.Log(delay);
             yield return new WaitForSeconds(delay);
             CreateProjectile();
         }

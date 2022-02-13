@@ -30,4 +30,11 @@ public class PipeProjectileMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-}
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            Destroy(col.gameObject);
+        }
+    }
+    }
