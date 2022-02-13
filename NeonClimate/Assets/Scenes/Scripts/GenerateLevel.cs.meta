@@ -3,7 +3,14 @@ guid: 11f42315aff29c749b3a39c556ec47be
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - movingPlatform: {instanceID: 0}
+  - movingPlatformWide: {instanceID: 0}
+  - platform: {instanceID: 0}
+  - widePlatform: {instanceID: 0}
+  - LeftPipe: {instanceID: 0}
+  - RightPipe: {instanceID: 0}
+  - power: {fileID: 5345210264749729729, guid: 23ea22dbe2606afbbbd4938b59112897, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
