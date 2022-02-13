@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpHeight: 15
+  jumpHeight: 2
   dashSpeed: 10
   distanceBetweenImages: 1
   whatIsGround:
