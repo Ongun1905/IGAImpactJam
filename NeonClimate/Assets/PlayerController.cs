@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
     public int dashSpeed;
     private bool hasDashed = false;
+	private float lastImageXpos;
+	[SerializeField] private float distanceBetweenImages = 1f;
    
     private Rigidbody2D rb2d;
 
@@ -26,11 +28,17 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
     }
+	
+	void Update()
+	{
+		Dash();
+		CheckDash();
+	}
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+		
     }
 
     public bool IsGrounded()
@@ -61,12 +69,27 @@ public class PlayerController : MonoBehaviour
             Vector2 velocity = rb2d.velocity;
             rb2d.velocity = new Vector2(rb2d.velocity.x * dashSpeed, rb2d.velocity.y);
             hasDashed = true;
+			
+			PlayerAfterImagePool.Instance.GetFromPool();
+			lastImageXpos = transform.position.x;
         }
         else if(IsGrounded())
         {
             hasDashed = false;
         }
     }
+	
+	private void CheckDash()
+	{
+		if (hasDashed)
+		{
+			if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+			{
+				PlayerAfterImagePool.Instance.GetFromPool();
+				lastImageXpos = transform.position.x;
+			}
+		}
+	}
 
     public void Flip()
     {
