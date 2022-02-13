@@ -24,7 +24,7 @@ public class PipeProjectileSpawner : MonoBehaviour
 
     private IEnumerator TrashThrower()
     {
-        while (Mathf.Abs(transform.position.y - PlayerTransform.position.y) < 10f)
+        while (true)
         {
             float delay = Random.Range(1.8f, 2.5f);
             Debug.Log(delay);

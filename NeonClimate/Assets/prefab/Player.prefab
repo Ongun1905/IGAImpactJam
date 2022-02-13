@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpHeight: 3
-  dashSpeed: 3
+  jumpHeight: 2
+  dashSpeed: 10
   distanceBetweenImages: 1
   whatIsGround:
     serializedVersion: 2
