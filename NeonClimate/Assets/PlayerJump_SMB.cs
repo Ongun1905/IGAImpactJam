@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerJump_SMB : StateMachineBehaviour
 {
     private PlayerController playerController;
+    private Rigidbody2D rb2d;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        
+        rb2d = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+
 
     }
 
@@ -17,6 +19,7 @@ public class PlayerJump_SMB : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerController.Jump();
+       
 
     }
 
@@ -24,6 +27,7 @@ public class PlayerJump_SMB : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("hasJumped");
+       
     }
 
     

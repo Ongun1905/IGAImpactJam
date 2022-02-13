@@ -12,6 +12,7 @@ public class PlayerWalk_SMB : StateMachineBehaviour
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         rb2d = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         
+        
     }
 
      //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -19,10 +20,8 @@ public class PlayerWalk_SMB : StateMachineBehaviour
     {
         
         playerController.Flip();
-        if(playerController.IsGrounded())
-        {
-            playerController.Movement();
-        }
+        playerController.Movement();
+        
         
         if(Input.GetKey(KeyCode.Space) && playerController.IsGrounded())
         {
