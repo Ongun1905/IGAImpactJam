@@ -16,4 +16,12 @@ public class WaterRisingController : MonoBehaviour
     {
         transform.Translate(new Vector3(0,speed*Time.deltaTime,0) * Time.deltaTime);
     }
+	
+	void OnTriggerEnter2D(Collider2D col)
+    {
+		if (col.gameObject.tag == "Player")
+		{
+			Destroy(col.gameObject);
+		}
+    }
 }
