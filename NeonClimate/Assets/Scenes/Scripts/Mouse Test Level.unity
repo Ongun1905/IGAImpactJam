@@ -238,6 +238,8 @@ MonoBehaviour:
   movingPlatformWide: {fileID: 1145932357}
   platform: {fileID: 607952676}
   widePlatform: {fileID: 902512092}
+  LeftPipe: {fileID: 0}
+  RightPipe: {fileID: 0}
   minX: -10
   maxX: 10
   maxDifference: 4
@@ -1329,7 +1331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567703293366569861, guid: 7972cd9779163674eb1a550b831da192, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1567703293366569861, guid: 7972cd9779163674eb1a550b831da192, type: 3}
       propertyPath: m_LocalPosition.y
