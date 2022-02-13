@@ -21,55 +21,34 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = transform.GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Jump");
 
-        Vector2 velocity = rb2d.velocity;
-        bool grounded = IsGrounded();
-        if (grounded)
-        {
-            velocity.x = horizontal * speed;
-        } else
-        {
-            velocity.x += horizontal * speed / 16;
-            /*
-            if (velocity.x < -speed)
-            {
-                velocity.x = -speed;
-            }
-            else if (velocity.x > speed)
-            {
-                velocity.x = speed;
-            }
-            */
-        }
-
-        if (grounded && vertical > 0.0)
-        {
-            velocity.y = jumpHeight;
-        }
-
-        rb2d.velocity = velocity;
-
-        Dash();
-        Flip();
     }
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, 0.51f, whatIsGround);
+        return Physics2D.Raycast(transform.position, Vector2.down, 1.5f, whatIsGround);
     }
 
     private void OnDrawGizmos()
     {
-        //Debug.DrawRay(transform.position, Vector2.down, Color.green, 1);
+        Debug.DrawRay(transform.position, Vector2.down, Color.green, 2);
+    }
+
+    public void Movement()
+    {
+        Debug.Log("move");
+        float horizontal = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2(horizontal, 0);
+        rb2d.velocity = new Vector2(movement.x * speed, rb2d.velocity.y);
+        rb2d.MovePosition(rb2d.position + rb2d.velocity * Time.fixedDeltaTime);
+
     }
 
     public void Dash()
@@ -99,32 +78,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Movement()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-
-        Vector2 velocity = rb2d.velocity;
-        bool grounded = IsGrounded();
-        if (grounded)
-        {
-            velocity.x = horizontal * speed;
-        }
-        else
-        {
-            velocity.x += horizontal * speed / 16;
-        }
-        rb2d.velocity = velocity;
-    }
+  
 
     public void Jump()
     {
-        Vector2 velocity = rb2d.velocity;
-        bool grounded = IsGrounded();
-        float vertical = Input.GetAxis("Jump");
-        if (grounded && vertical > 0.0)
-        {
-            velocity.y = jumpHeight;
-        }
-        rb2d.velocity = velocity;
+        rb2d.AddForce(Vector3.up * jumpHeight, ForceMode2D.Impulse);
+        
     }
+
+
 }
