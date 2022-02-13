@@ -29,10 +29,11 @@ public class PlayerWalk_SMB : StateMachineBehaviour
             animator.SetBool("isWalking", false);
         }
 
-        if (rb2d.velocity.x == 0)
+        if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             animator.SetBool("isWalking", false);
         }
+
 
     }
 

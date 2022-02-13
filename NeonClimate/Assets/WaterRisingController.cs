@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaterRisingController : MonoBehaviour
 {
@@ -19,8 +20,10 @@ public class WaterRisingController : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D col)
     {
+        Scene scene = SceneManager.GetActiveScene();
 		if (col.gameObject.tag == "Player")
 		{
+            SceneManager.LoadScene(scene.name);
 			Destroy(col.gameObject);
 		}
     }

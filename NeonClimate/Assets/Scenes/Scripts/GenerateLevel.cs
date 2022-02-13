@@ -38,7 +38,7 @@ public class GenerateLevel : MonoBehaviour
     {
         float previousX = 0;
         var ranges = new (float start, float end)[] { (-1.0f, 1.0f) };
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 30; i++)
         {
             var rando = Random.Range(0, 8);
             var isWide = Random.Range(0.0f, 1.0f) > 0.5f;
@@ -90,15 +90,15 @@ public class GenerateLevel : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             float sidenumber = Random.Range(-1f, 1f);
             if (sidenumber > 0)
             {
-                var NewRightPipe = GameObject.Instantiate(RightPipe, new Vector3(-20.0F, (i+2)*5, 0), Quaternion.identity);
+                var NewRightPipe = GameObject.Instantiate(RightPipe, new Vector3(-20.0F, (i+2)*10, 0), Quaternion.identity);
             }
             else {
-                var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(20.0F, (i+1)*5, 0), Quaternion.identity);
+                var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(20.0F, (i+1)*10, 0), Quaternion.identity);
 
             }
         }  
