@@ -97,10 +97,10 @@ public class GenerateLevel : MonoBehaviour
             float sidenumber = Random.Range(-1f, 1f);
             if (sidenumber > 0)
             {
-                var NewRightPipe = GameObject.Instantiate(RightPipe, new Vector3(-11.0F, (i+2)*3, 0), Quaternion.identity);
+                var NewRightPipe = GameObject.Instantiate(RightPipe, new Vector3(-11.0F, (i+2)*5, 0), Quaternion.identity);
             }
             else {
-                var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(11.0F, (i+1)*3, 0), Quaternion.identity);
+                var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(11.0F, (i+1)*5, 0), Quaternion.identity);
 
             }
         }  

@@ -26,7 +26,7 @@ public class PipeProjectileSpawner : MonoBehaviour
     {
         while (Mathf.Abs(transform.position.y - PlayerTransform.position.y) < 10f)
         {
-            float delay = Random.Range(0.8f, 2.5f);
+            float delay = Random.Range(1.8f, 2.5f);
             Debug.Log(delay);
             yield return new WaitForSeconds(delay);
             CreateProjectile();
