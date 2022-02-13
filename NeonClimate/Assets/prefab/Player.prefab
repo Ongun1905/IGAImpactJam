@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1567703293366569864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.38, y: -0.77, z: 0}
-  m_LocalScale: {x: 1.1168702, y: 1.1168702, z: 1.1168702}
+  m_LocalScale: {x: 1.005183, y: 1.005183, z: 1.005183}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 3
   dashSpeed: 3
+  distanceBetweenImages: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8

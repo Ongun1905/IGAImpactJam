@@ -21,9 +21,9 @@ public class SuperJump : MonoBehaviour
         script = obj.GetComponent(typeof(PlayerController)) as PlayerController;
 
         if (script != null){
-            script.jumpHeight *= 5;
+            script.jumpHeight *= 2;
             yield return new WaitForSeconds(3);
-            script.jumpHeight /= 5;
+            script.jumpHeight /= 2;
         }
     }
 }

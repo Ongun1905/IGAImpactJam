@@ -15,7 +15,7 @@ public class GenerateLevel : MonoBehaviour
     public float maxX;
     public float maxDifference;
     public float yOffest;
-    public float yBoxOffset = 2.0f;
+    public float yBoxOffset = 3.0f;
 
     GameObject getPlatform(bool moving, bool wide)
     {
