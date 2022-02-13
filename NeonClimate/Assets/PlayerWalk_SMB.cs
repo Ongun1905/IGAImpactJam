@@ -33,7 +33,7 @@ public class PlayerWalk_SMB : StateMachineBehaviour
 
         if (Input.GetKey(KeyCode.Space) && playerController.IsGrounded())
         {
-            playerController.Jump();
+        
             animator.SetTrigger("hasJumped");
 
         }
