@@ -10,6 +10,7 @@ public class GenerateLevel : MonoBehaviour
     public GameObject widePlatform;
     public GameObject LeftPipe;
     public GameObject RightPipe;
+    public Transform power;
     public float minX;
     public float maxX;
     public float maxDifference;
@@ -67,6 +68,12 @@ public class GenerateLevel : MonoBehaviour
             {
                 newPlatform.AddComponent<Crumbling>();
             }
+            else if (rando == 3){
+                Vector3 pos = newPlatform.transform.position;
+                pos.y += 1.0f;
+                Transform obj = GameObject.Instantiate(power, pos, transform.rotation);
+                obj.parent = newPlatform.transform;
+            }
 
 
             if (isWide)
@@ -96,10 +103,6 @@ public class GenerateLevel : MonoBehaviour
                 var newLeftPipe = GameObject.Instantiate(LeftPipe, new Vector3(11.0F, (i+1)*3, 0), Quaternion.identity);
 
             }
-        }
-
-      
-        
-        
+        }  
     }
 }
